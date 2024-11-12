@@ -1,11 +1,10 @@
-import "./card"
+import "./Card.css"
 
-export function Card({price, image, title}){
+export function Card({image, title}){
     return(
         <div className="card">
-            <img src="" alt="" />
-            <h2></h2>
-            <p><b>Valor:</b></p>
+            <img src={`${image}/preview`} alt="imagem da bebida" />           
+            <h2>{title}</h2>
         </div>
     )
 }
