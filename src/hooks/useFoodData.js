@@ -8,12 +8,12 @@ const fetchData = async () => {
     return response;
 }
 
-export function useFoodData(){
+export function useFoodData() {
     const query = useQuery({
         queryFn: fetchData,
         queryKey: ['food-data'],
-        retry:2
-    }) 
+        retry: 2
+    })
 
-    return {...query, data: query.data?.data.drinks}
+    return { ...query, data: query.data?.data.drinks }
 }
