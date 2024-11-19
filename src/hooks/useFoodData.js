@@ -4,7 +4,7 @@ import axios from "axios"
 const API_URL = 'http://localhost:8080/'
 
 const fetchData = async () => {
-    const response = axios.get(`${API_URL}drink`);
+    const response = await axios.get(`http://localhost:8080/cocktail/f/l/a`);
     return response;
 }
 
@@ -15,5 +15,5 @@ export function useFoodData() {
         retry: 2
     })
 
-    return { ...query, data: query.data?.data.drinks }
+    return { data: query.data?.data }
 }
