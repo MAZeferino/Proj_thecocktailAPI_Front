@@ -1,9 +1,14 @@
 module.exports = {
   content: [
-    "./src/**/*.{js,jsx}", // Adapte para os arquivos do seu projeto
+    "./src/**/*.{js,jsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        inter: ['Inter', 'sans-serif'],
+        sevillana: ['Sevillana', 'cursive'],
+      },
+    },
   },
-  plugins: [],
+  plugins: [require('tailwind-scrollbar-hide')],
 };
