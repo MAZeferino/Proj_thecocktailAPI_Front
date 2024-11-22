@@ -3,24 +3,20 @@ import { Filter } from './Filter.jsx'
 import { useEffect, useState } from 'react'
 import { FilterButton } from './FilterButton.jsx';
 
-export function Aside() {
-  const [selectedFilter, setSelectedFilter] = useState(null);
-  const drink = useFilterByLetter()
+export function Aside({ getFilter, setFilter, getType, setType }) {
 
-
-  const handleClick = (item) => {
-    setSelectedFilter(item === selectedFilter ? null : item);
-    drink.getDrink("item")
-    console.log(drink.getData)
+  const handleClick = (item, type) => {
+    setFilter(item === getFilter ? null : item);
+    setType(item === getType ? null : type)
   };
 
   return (
-    <aside className="bg-[#1A1A1A] w-1/5 min-h-[94vh] px-4 py-2 mr-6 text-white">
+    <aside className="bg-[#0D0D0D] w-1/5 min-h-[94vh] px-4 py-2 mr-6 text-white">
       {/*TODO COMPONENTE PRA RANDOM BUTTON */}
-      <Filter title="First Letter" type="letter" array={Array.from({ length: 26 }, (_, i) => String.fromCharCode(97 + i))} clickFunction={handleClick} currentfilter={selectedFilter} />
-      <Filter title="Main Ingredient" type="text" array={["Vodka", "Gin", "Rum", "Whisky"]} clickFunction={handleClick} currentfilter={selectedFilter} />
-      <Filter title="Category" type="text" array={["OrdinaryDrink", "Cocktail"]} clickFunction={handleClick} currentfilter={selectedFilter} />
-      <Filter title="Alcoholic or Not" type="text" array={["Alcoholic", "NonAlcoholic"]} clickFunction={handleClick} currentfilter={selectedFilter} />
+      <Filter title="First Letter" type="letter" array={Array.from({ length: 26 }, (_, i) => String.fromCharCode(97 + i))} clickFunction={handleClick} currentFilter={getFilter} />
+      <Filter title="Main Ingredient" type="ingredient" array={["Vodka", "Gin", "Rum", "Whisky"]} clickFunction={handleClick} currentFilter={getFilter} />
+      <Filter title="Alcoholic or Not" type="alcoholic" array={["Alcoholic", "Non Alcoholic"]} clickFunction={handleClick} currentFilter={getFilter} />
+      <Filter title="Category" type="category" array={["Ordinary Drink", "Cocktail"]} clickFunction={handleClick} currentFilter={getFilter} />
     </aside>
   )
 }

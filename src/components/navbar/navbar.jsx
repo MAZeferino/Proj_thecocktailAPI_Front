@@ -1,7 +1,7 @@
 import { RiSearch2Line } from "react-icons/ri";
 import { BiSolidDrink } from "react-icons/bi";
 
-export function Navbar({ image }) {
+export function Navbar() {
   return (
     <nav className="bg-[#0D0D0D] p-4">
       <div className="mx-4 flex items-center justify-between">
@@ -9,16 +9,11 @@ export function Navbar({ image }) {
           <span className="font-semibold text-4xl text-white">Drinktopia</span>
         </div>
         <div className="flex place-items-center space-x-6">
-          <div className="hidden md:flex space-x-4 gap-2">
-            <a href="#" className="text-gray-300 text-xl hover:text-white transition-colors">
-              <span className='inline-flex place-items-center gap-0.5'><BiSolidDrink /> Random</span>
-            </a>
-          </div>
           <div className="relative">
             <input
               type="text"
               placeholder="Buscar..."
-              className="px-2 py-2 mr-1 rounded md:w-64 bg-gray-800 text-white placeholder-gray-400 border-gray-700 focus:border-gray-600 focus:ring-gray-600"
+              className="px-2 py-2 mr-1 rounded w-60 bg-gray-800 text-white placeholder-gray-400 focus:outline-none"
             />
             <button className="px-3 pb-3.5 pt-2.5 rounded bg-[#0D0D0D] hover:bg-gray-200 hover:text-slate-900 transition duration-300">
               <RiSearch2Line />
