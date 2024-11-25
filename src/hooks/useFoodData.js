@@ -12,13 +12,11 @@ export async function useFoodData(item, type) {
     case 'ingredient':
       response = await axios.get(`${API_URL}cocktail/f/i/${item}`);
       break;
-    case 'category':
-      //www.thecocktaildb.com/api/json/v1/1/filter.php?c=Ordinary_Drink
+    case 'alcoholic':
       response = await axios.get(`${API_URL}cocktail/f/a/${item}`);
       break;
-    case 'alcoholic':
-      //www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic 
-      response = await axios.get(`${API_URL}cocktail/f/a/${item}`);
+    case 'category':
+      response = await axios.get(`${API_URL}cocktail/f/c/${item}`);
       break;
   }
   console.log(item)

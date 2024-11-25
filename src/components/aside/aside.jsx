@@ -16,7 +16,7 @@ export function Aside({ getFilter, setFilter, getType, setType }) {
       <Filter title="First Letter" type="letter" array={Array.from({ length: 26 }, (_, i) => String.fromCharCode(97 + i))} clickFunction={handleClick} currentFilter={getFilter} />
       <Filter title="Main Ingredient" type="ingredient" array={["Vodka", "Gin", "Rum", "Whisky"]} clickFunction={handleClick} currentFilter={getFilter} />
       <Filter title="Alcoholic or Not" type="alcoholic" array={["Alcoholic", "Non Alcoholic"]} clickFunction={handleClick} currentFilter={getFilter} />
-      <Filter title="Category" type="category" array={["Ordinary Drink", "Cocktail"]} clickFunction={handleClick} currentFilter={getFilter} />
+      <Filter title="Category" type="category" array={["Cocktail", "Homemade Liqueur","Ordinary Drink", "Party Drink", "Shot", "Shake", "Coffee", "Beer", "Other"]} clickFunction={handleClick} currentFilter={getFilter} />
     </aside>
   )
 }
