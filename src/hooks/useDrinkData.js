@@ -3,7 +3,7 @@ import axios from "axios"
 
 const API_URL = 'http://localhost:8080/'
 
-export async function useFoodData(item, type) {
+export async function useDrinksData(item, type) {
   let response
   switch (type) {
     case 'letter':
@@ -18,7 +18,9 @@ export async function useFoodData(item, type) {
     case 'category':
       response = await axios.get(`${API_URL}cocktail/f/c/${item}`);
       break;
+    default:
+      response = await axios.get(`${API_URL}cocktail/f/r`);
   }
-  
+
   return response?.data;
 }

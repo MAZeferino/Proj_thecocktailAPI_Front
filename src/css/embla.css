@@ -36,7 +36,7 @@
 
 .embla-thumbs {
   --thumbs-slide-spacing: 0.8rem;
-  --thumbs-slide-height: 6rem;
+  --thumbs-slide-height: 7rem;
   margin-top: var(--thumbs-slide-spacing);
 }
 

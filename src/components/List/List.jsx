@@ -31,7 +31,7 @@ export function List({ options, drinks }) {
 
   return (
     <section className="w-[80%]">
-      <div className="mb-16 mt-12 flex">
+      <div className="mb-16 mt-4 flex">
         <h1 className="mr-8">Drinks</h1>
         <hr className="w-[100%] mt-[1.8%] border-2 border-white" />
       </div>

@@ -1,7 +1,7 @@
 export function Card({ image, name, ingredients, instructions }) {
   return (
     <div className="embla__slide">
-      <div className="embla__slide__number justify-items-start cursor-pointer bg-[#0D0D0D] pr-12 h-[650px]">
+      <div className="embla__slide__number justify-items-start bg-[#1A1A1A] pr-12 h-[650px]">
         <img src={image} alt="imagem da bebida" className="rounded-3xl h-full" />
         <div className="scrollbar-hide h-[650px] flex flex-col">
           <h1 className="font-sevillana text-[8rem] ml-8 mt-10 text-red-600">{name}</h1>
