@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect } from 'react'
+import { PrimeReactProvider } from 'primereact/api';
 import { Aside } from './components/aside/aside'
 import { Navbar } from './components/navbar/navbar'
 import { List } from './components/List/List'
@@ -24,13 +25,13 @@ function App() {
   }, [currentFilter]);
 
   return (
-    <>
+    <PrimeReactProvider>
       <Navbar />
       <div className="flex">
         <Aside getFilter={currentFilter} setFilter={setFilter} getType={currentType} setType={setType} />
         <List drinks={cocktailsList} />
       </div>
-    </>
+    </PrimeReactProvider>
   )
 }
 

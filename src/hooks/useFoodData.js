@@ -19,9 +19,6 @@ export async function useFoodData(item, type) {
       response = await axios.get(`${API_URL}cocktail/f/c/${item}`);
       break;
   }
-  console.log(item)
-  console.log(type)
-  console.log(response?.data)
   
   return response?.data;
 }
