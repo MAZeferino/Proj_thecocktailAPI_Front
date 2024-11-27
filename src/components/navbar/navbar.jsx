@@ -1,4 +1,4 @@
-import { SearchBar } from './searchbar'
+import { SearchBar } from './SearchBar'
 
 export function Navbar() {
   return (

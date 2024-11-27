@@ -1,35 +1,43 @@
 import React, { useState, useEffect } from 'react'
 import { PrimeReactProvider } from 'primereact/api';
-import { Aside } from './components/aside/aside'
-import { Navbar } from './components/navbar/navbar'
-import { List } from './components/List/List'
+import { Aside } from './components/aside/Aside'
+import { Navbar } from './components/navbar/NavBar'
+import { List } from './components/list/List'
 import { useDrinksData } from './hooks/useDrinkData'
-import './App.css'
 import './css/base.css'
 import './css/embla.css'
 
 
 
 function App() {
-  let [currentType, setType] = useState(null)
-  let [currentFilter, setFilter] = useState(null)
+  let [currentFilter, setFilter] = useState({ letter: null, ingredient: null, alcoholic: null, category: null })
   let [cocktailsList, setCocktails] = useState(null)
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const result = await useDrinksData(currentFilter, currentType);
-      setCocktails(result);
-    };
+    setIsLoading(true);
+    try {
+      const fetchData = async () => {
+        const result = await useDrinksData(currentFilter);
+        setCocktails(result);
+      };
 
-    fetchData();
-  }, [currentFilter, currentType]);
+      fetchData();
+    } catch (error) {
+      console.error("Erro ao aplicar filtro:", error);
+    } finally {
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 400);
+    }
+  }, [currentFilter]);
 
   return (
     <PrimeReactProvider>
       <Navbar />
       <div className="flex">
-        <Aside getFilter={currentFilter} setFilter={setFilter} getType={currentType} setType={setType} />
-        <List drinks={cocktailsList} />
+        <Aside getFilter={currentFilter} setFilter={setFilter} />
+        <List options={{ loop: true }} drinks={cocktailsList} isLoading={isLoading} />
       </div>
     </PrimeReactProvider>
   )
