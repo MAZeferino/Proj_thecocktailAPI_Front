@@ -1,12 +1,15 @@
 import { Filter } from './Filter.jsx'
 
-export function Aside({ getFilter, setFilter }) {
+export function Aside({ getFilter, setFilter, setClosing }) {
 
   const handleClick = async (item, type) => {
-    setFilter((prev) => ({
-      ...prev,
-      [type]: prev[type] === item ? null : item,
-    }));
+    setClosing(true)
+    setTimeout(() => {
+      setFilter((prev) => ({
+        ...prev,
+        [type]: prev[type] === item ? null : item,
+      }));
+    }, 100);
   };
 
   return (

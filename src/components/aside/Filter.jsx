@@ -1,6 +1,6 @@
 import { FilterButton } from "./FilterButton"
 
-export function Filter({ title, type, array, clickFunction, currentFilter, currentType }) {
+export function Filter({ title, type, array, clickFunction, currentFilter }) {
   return (
     <>
       <h4 className={"text-md font-semibold mt-8"}>{title}</h4>

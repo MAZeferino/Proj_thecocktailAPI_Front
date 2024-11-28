@@ -12,9 +12,11 @@ import './css/embla.css'
 function App() {
   let [currentFilter, setFilter] = useState({ letter: null, ingredient: null, alcoholic: null, category: null })
   let [cocktailsList, setCocktails] = useState(null)
+  let [closing, setClosing] = useState(false)
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setClosing(false)
     setIsLoading(true);
     try {
       const fetchData = async () => {
@@ -28,7 +30,7 @@ function App() {
     } finally {
       setTimeout(() => {
         setIsLoading(false);
-      }, 400);
+      }, 300);
     }
   }, [currentFilter]);
 
@@ -36,8 +38,8 @@ function App() {
     <PrimeReactProvider>
       <Navbar />
       <div className="flex">
-        <Aside getFilter={currentFilter} setFilter={setFilter} />
-        <List options={{ loop: true }} drinks={cocktailsList} isLoading={isLoading} />
+        <Aside getFilter={currentFilter} setFilter={setFilter} setClosing={setClosing} />
+        <List options={{ loop: true }} drinks={cocktailsList} isLoading={isLoading} closing={closing} />
       </div>
     </PrimeReactProvider>
   )
