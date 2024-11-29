@@ -10,6 +10,6 @@ export async function useDrinksData(filters) {
     .map(([key, value]) => `${key}=${value}`)
     .join("&");
 
-  response = await axios.get(queryParams == "" ? `${API_URL}filter/r` : `${API_URL}filterby?${queryParams}`);
+  response = await axios.get(queryParams == "search=" || queryParams == "" ? `${API_URL}filter/r` : `${API_URL}filterby?${queryParams}`);
   return response?.data;
 }

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { PrimeReactProvider } from 'primereact/api';
 import { Aside } from './components/aside/Aside'
-import { Navbar } from './components/navbar/NavBar'
 import { List } from './components/list/List'
 import { useDrinksData } from './hooks/useDrinkData'
 import './css/base.css'
@@ -10,7 +9,7 @@ import './css/embla.css'
 
 
 function App() {
-  let [currentFilter, setFilter] = useState({ letter: null, ingredient: null, alcoholic: null, category: null })
+  let [currentFilter, setFilter] = useState({ search: null, letter: null, ingredient: null, alcoholic: null, category: null })
   let [cocktailsList, setCocktails] = useState(null)
   let [closing, setClosing] = useState(false)
   const [isLoading, setIsLoading] = useState(false);
@@ -36,7 +35,6 @@ function App() {
 
   return (
     <PrimeReactProvider>
-      <Navbar />
       <div className="flex">
         <Aside getFilter={currentFilter} setFilter={setFilter} setClosing={setClosing} />
         <List options={{ loop: true }} drinks={cocktailsList} isLoading={isLoading} closing={closing} />

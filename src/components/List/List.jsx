@@ -10,7 +10,7 @@ export function List({ options, drinks, isLoading, closing }) {
   const [emblaMainRef, emblaMainApi] = useEmblaCarousel(options, [AutoScroll({ playOnInit: true, stopOnInteraction: false, stopOnMouseEnter: true })])
   const [emblaThumbsRef, emblaThumbsApi] = useEmblaCarousel({ containScroll: 'keepSnaps', dragFree: true })
 
-  //Não fui eu que fiz não sou eu que vou mexer from: EMBLA 
+  //from: EMBLA 
   const onThumbClick = useCallback(
     (index) => {
       if (!emblaMainApi || !emblaThumbsApi) return
@@ -28,18 +28,15 @@ export function List({ options, drinks, isLoading, closing }) {
 
     emblaMainApi.on('select', onSelect).on('reInit', onSelect)
   }, [emblaMainApi, onSelect])
-  //Até aq
-
-
-
+  //
 
   return (
-    <section className={`w-[80%]`}>
-      <div className="mb-16 mt-4 flex">
+    <section className={`w-[80%] grid grid-cols-1`}>
+      <div className="mt-12 flex">
         <h1 className="mr-8">Drinks</h1>
         <hr className="w-[100%] mt-[1.8%] border-2 border-white" />
       </div>
-      <div id="carousel" className={`transition-opacity duration-300 ${closing && !isLoading ? "opacity-0 pointer-events-none" : !closing && isLoading ? "opacity-0 pointer-events-none" : "opacity-100"}`}>
+      <div id="carousel" className={`w-full transition-opacity duration-300 ${closing && !isLoading ? "opacity-0 pointer-events-none" : !closing && isLoading ? "opacity-0 pointer-events-none" : "opacity-100"}`}>
         {isLoading ? <Loader /> : <Carousel drinks={drinks} emblaMainRef={emblaMainRef} emblaThumbsRef={emblaThumbsRef} selectedIndex={selectedIndex} onThumbClick={onThumbClick} />}
       </div>
     </section>
